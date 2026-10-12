@@ -175,6 +175,14 @@ section{margin-top:52px}
 .wrow.key{border:2px solid var(--ai)}
 .bp{border-left:4px solid var(--cit);background:var(--cit-bg);color:var(--cit-ink);padding:10px 14px;font-size:14px;margin-top:6px}
 
+/* existing columns */
+.col-list{list-style:none;padding:0;margin:0 0 14px;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.col-list li{font-size:13.5px;line-height:1.6;padding:6px 0;border-bottom:1px solid var(--line)}
+.col-list .dt{color:var(--ink2);font-size:12px;margin-right:6px}
+.col-list .tp{display:inline-block;font-size:11.5px;color:var(--ink2);border:1px solid var(--line);border-radius:4px;padding:0 6px;margin-left:4px}
+.find .wa{background:var(--panel2);border-right:1px solid var(--line)}
+.find .wa .t{color:var(--ink)}
+
 /* channel table */
 .chcols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .chcol{border-radius:12px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
@@ -191,7 +199,11 @@ section{margin-top:52px}
 .chcol li .m{display:block;font-size:12px;color:var(--ink2)}
 
 /* asks */
-.asks{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.asks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.zone.done{background:var(--panel);border:1px solid var(--line)}
+.zone.done h4{color:var(--ink2)}
+.okmark{display:inline-block;font-size:12px;font-weight:700;color:var(--con-ink);background:var(--con-bg);border-radius:999px;padding:1px 10px;vertical-align:1px}
+.asks .d{display:block;font-size:12.5px;color:var(--ink2)}
 .asks .zone{padding:16px 18px}
 .asks ol{margin:0;padding-left:1.3em}
 .asks li{margin:6px 0}
@@ -199,6 +211,8 @@ section{margin-top:52px}
 
 @media (max-width:820px){
   .wrow{grid-template-columns:1fr}
+  .col-list{grid-template-columns:1fr}
+  .find .wa{border-right:0;border-bottom:1px solid var(--line)}
   .wrow .wa{border-right:0;border-bottom:1px dashed var(--ai)}
   .legend,.dtop,.checks,.rulers,.quad,.asks{grid-template-columns:1fr}
   .rules,.chcols{grid-template-columns:1fr}
@@ -366,7 +380,7 @@ section{margin-top:52px}
           <ul class="mlist">
             <li><span class="tag con">コンテンツ</span><span>調査「オーナー経営者の財産の相談先の選び方と費用」（100名）</span><span class="when">10〜11月</span></li>
             <li><span class="tag web">Webサイト</span><span>料金の考え方のページ（無料の範囲、顧問契約の目安、実行報酬、減額の決まり）</span><span class="when">12月上旬</span></li>
-            <li><span class="tag con">コンテンツ</span><span>費用事例3本と、相談先の選び方のページ</span><span class="when">12月上旬</span></li>
+            <li><span class="tag con">コンテンツ</span><span>費用事例3本と、相談先の選び方のページ。既存コラム「不動産売却の相談はどこにする？」の型を使い、貴社の事実と監修者を加える</span><span class="when">12月上旬</span></li>
             <li><span class="tag cit">サイテーション</span><span>調査結果のリリース。料金を公開したこと自体のニュース化もご検討ください</span><span class="when">12月中旬</span></li>
             <li><span class="tag cit">サイテーション</span><span>リリース末尾の会社紹介文に「費用の目安を事前に示す」と入れる（言葉の設計）</span><span class="when">11月〜</span></li>
           </ul>
@@ -414,7 +428,7 @@ section{margin-top:52px}
           <div class="zone ai"><h4><span class="tag ai">AI上</span>確認する問い</h4><p class="small" style="margin:0">#1・#3（顧問税理士には税務を任せているが、資産の組み替えは相談できていない）、#31（税理士の立場のまま連携できる外部）。あわせて#30・#32（提携先・紹介先を選ぶ問い）</p></div>
           <div class="zone biz"><h4><span class="tag biz">事業</span>ご判断をお願いしたいこと<span class="wait">11月</span></h4>
             <ul class="small">
-              <li>役割分担を明記するか。提携先の会計事務所へ事前にお伝えするか</li>
+              <li>役割分担の明記（10月の定例で前向きなご意向をいただきました。進め方を改めてご説明します）と、提携先の会計事務所へ事前にお伝えするか</li>
               <li>相続税の申告の書き方。連携先の税理士法人チェスターが担う領域と重ならないよう、「決算と毎年の申告は顧問税理士、相続税の申告は顧問税理士か連携先の税理士法人をご希望で」のように分けて書く案です</li>
               <li>連携の進め方のページで、紹介料の扱いにどこまで触れるか（AIは提携先の確認点として、紹介料の透明性を挙げています）</li>
             </ul>
@@ -449,11 +463,13 @@ section{margin-top:52px}
             <li><span class="tag con">コンテンツ</span><span>年末の「総括と展望」レポート（金利、為替、新NISAなど、財産を取り巻く環境と来年の見通し）。納税資金と生前対策もここで扱う</span><span class="when">12月</span></li>
             <li><span class="tag cit">サイテーション</span><span>総括と展望レポートのリリースと、専門メディアへのご案内</span><span class="when">12月</span></li>
             <li><span class="tag web">Webサイト</span><span>家族信託のページの復旧。来期のサイト整理で「総合財産コンサルティングとは」を説明するページ</span><span class="when">10月〜来期</span></li>
+            <li><span class="tag cit">サイテーション</span><span>社外の貴社記事「民事信託（家族信託）の注意点と企業を選ぶポイント」を、家族信託のページから紹介</span><span class="when">10〜11月</span></li>
+            <li><span class="tag con">コンテンツ</span><span>税制や手続きの一般解説はチェスターの解説ページにリンクし、貴社のコラムは判断と選び方に寄せる</span><span class="when">11月〜</span></li>
           </ul>
         </div>
         <div class="checks">
           <div class="zone ai"><h4><span class="tag ai">AI上</span>確認する問い</h4><p class="small" style="margin:0">#2・#27（最初に誰に相談すべきか）、#18（独立系とは何が違うか）、#21（会社売却後の相談先）、#7・#8（急な相続や認知症への備え）。10月から、「財産コンサルティング」が選択肢として出るかも別に測ります</p></div>
-          <div class="zone biz"><h4><span class="tag biz">事業</span>ご判断をお願いしたいこと<span class="wait">10月中</span></h4><p class="small" style="margin:0">社長の考え方を対外的な表現に使うこと（使用できる前提で企画を進め、最終の表現は貴社でご確認いただく）</p></div>
+          <div class="zone done"><h4><span class="okmark">確認済み</span>10月の定例で確認できたこと</h4><p class="small" style="margin:0">社長の考え方は、対外的な表現に使ってよい前提で進めます。最終の表現は貴社で調整いただきます。財産基本報告書の見本の試算も、コラムで使えます</p></div>
         </div>
       </div>
 
@@ -482,8 +498,9 @@ section{margin-top:52px}
           <ul class="mlist">
             <li><span class="tag web">Webサイト</span><span>トップの実績数値を画像からテキストへ</span><span class="when">対応済み</span></li>
             <li><span class="tag web">Webサイト</span><span>会社概要に証券コード、チェスターグループとの統合を明記</span><span class="when">10〜11月</span></li>
-            <li><span class="tag web">Webサイト</span><span>解説記事に監修者の実名と資格を記載（対象記事はIDEATECHから例示）</span><span class="when">10〜11月</span></li>
+            <li><span class="tag web">Webサイト</span><span>解説記事に監修者の実名と資格を記載。過去1年ほどの記事は対応済みのため、追加で付けるとよい記事をIDEATECHから2〜3本例示</span><span class="when">10〜11月</span></li>
             <li><span class="tag web">Webサイト</span><span>報酬体系のページをサイトの上の階層へ。2つのサイトで重なる情報を一本化</span><span class="when">来期のサイト整理</span></li>
+            <li><span class="tag web">Webサイト</span><span>コラム一覧に記事へのリンクを直接出す。記事ごとに要約の説明文を書く（制作会社）</span><span class="when">11月〜</span></li>
             <li><span class="tag web">Webサイト</span><span>サイトマップと構造化データ（制作会社）</span><span class="when">来期のサイト整理</span></li>
             <li><span class="tag cit">サイテーション</span><span>事業の話題でのリリースの比率を上げる</span><span class="when">来期</span></li>
             <li><span class="tag cit">サイテーション</span><span>連携先（税理士法人チェスターなど）のサイトでの、貴社の紹介のされ方を整える</span><span class="when">来期</span></li>
@@ -561,8 +578,70 @@ section{margin-top:52px}
   </section>
 
   <!-- 5 -->
+  <section id="existing">
+    <span class="kicker">5　既存のコラムとお知らせ</span>
+    <h2>いまある記事を、3つの基準と言葉の設計に合わせて活かします</h2>
+    <p class="lead">貴社サイトのコラムとお知らせを、2026年10月13日時点で確認しました。新しく作る前に、すでにある記事と社外の記事を使える形に直します。</p>
+    <div class="panel" style="padding:16px 20px;margin-bottom:14px">
+      <h3 style="font-size:14px;color:var(--ink2);margin-bottom:8px">確認したコラム（直近の掲載順）</h3>
+      <ul class="col-list">
+        <li><span class="dt">2026.09.23</span>相続における遺産分割を完全解説<span class="tp">相続対策</span></li>
+        <li><span class="dt">2026.09.11</span>ミニマムタックス課税の見直し</li>
+        <li><span class="dt">2026.09.08</span>小規模宅地等の特例とは？<span class="tp">相続対策・不動産</span></li>
+        <li><span class="dt">2026.08.11</span>不動産売却を有利に進める方法<span class="tp">不動産</span></li>
+        <li><span class="dt">2026.08.04</span>不動産売却の相談はどこにする？目的別の相談先と失敗しない選び方<span class="tp">不動産</span></li>
+        <li><span class="dt">2026.07.28</span>相続対策に不動産は有効？<span class="tp">相続対策</span></li>
+      </ul>
+      <p class="note" style="margin:0">ピックアップには、2026年度税制改正、資産5億円以上の相続実例（セミナー基調講演）、合同会社と事業承継、路線価、駐車場の相続税評価が並んでいます。</p>
+    </div>
+    <div class="words">
+      <div class="wrow find">
+        <div class="wa"><span class="t">テーマが不動産と相続税の解説に寄っている</span><p class="st">直近6本のうち4本が土地持ち資産家向けの不動産と相続税の話題で、残り2本は遺産分割とミニマムタックスの一般解説です。企業オーナー向けの自社株、顧問税理士との分担、家族信託、費用を扱う記事は、確認できた範囲では見当たりませんでした。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag con">コンテンツ</span><span>11月以降の新しい記事は、3つの基準と「これから結びつける4語」を優先します（顧問税理士との分担、費用、家族信託、自社株）</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow find">
+        <div class="wa"><span class="t">一般的な解説はチェスターと題材が重なる</span><p class="st">「遺産分割」のような一般解説は、記事名で検索すると税理士法人チェスターの解説ページが上位に並びます。グループ内で同じ題材を取り合う形になっています。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag con">コンテンツ</span><span>税制や手続きの一般解説はチェスターの解説ページに任せてリンクし、貴社のコラムは「どう判断するか」「誰に相談するか」「全体のどこから手をつけるか」に寄せます（基準③）</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow find">
+        <div class="wa"><span class="t">相談先を比べる記事が、すでにある</span><p class="st">8月の「不動産売却の相談はどこにする？」は、不動産会社・税理士・コンサルティング会社を比べ、要点とよくある質問を備えた、基準の記事に近い形です。ただし「コンサルティング会社」という一般名にとどまり、貴社の事実（独立系、上場、費用の考え方、5つの視点）は書かれていません。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag con">コンテンツ</span><span>この記事に、貴社の事実を1段落と監修者を加えます。同じ型で「財産の相談はどこにする？（企業オーナー向け）」を新しく作ります（基準①②）</span></li>
+          <li><span class="tag web">Webサイト</span><span>記事から料金の考え方のページと、5つの視点の無料診断へリンクします</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow find">
+        <div class="wa"><span class="t">AIや検索エンジンが記事をたどりにくい作り</span><p class="st">コラム一覧のHTMLには記事が載っておらず、件数が「00件」と表示されます（記事はブラウザで後から読み込む作り）。記事ページの説明文（meta description）も、確認した記事では会社紹介の共通文でした。監修者・執筆者の記載は、確認した記事のテキストでは見当たりませんでした。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag web">Webサイト</span><span>一覧ページに記事へのリンクを直接出す（制作会社）</span></li>
+          <li><span class="tag web">Webサイト</span><span>記事ごとに要約の説明文を書く。新しい記事から始め、過去の記事は基準に関わるものから順に</span></li>
+          <li><span class="tag web">Webサイト</span><span>監修者の記載場所を確認し、未記載の記事に追加する</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow find">
+        <div class="wa"><span class="t">社外に、貴社の家族信託の記事がある</span><p class="st">賃貸経営の情報サイト「オーナーズ・スタイル・ネット」に、貴社の「民事信託（家族信託）の注意点と企業を選ぶポイント」「民事信託を活用し『まさか』に備える」が掲載されています。貴社の解決事例にも「IPO準備で見落とされがちな『まさかの相続への備え』」「利益圧縮のための投資商品。本当に必要なのか見極めるポイント」があります。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag cit">サイテーション</span><span>家族信託のページを復旧するときに、社外の記事を紹介する（基準③、家族信託の語）</span></li>
+          <li><span class="tag con">コンテンツ</span><span>解決事例の2本を、まさかへの備え（基準③）と、商品を前提にしない姿勢（基準①）の材料として記事から参照する</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow find">
+        <div class="wa"><span class="t">お知らせとリリースは会社の取り組みが中心</span><p class="st">直近5件（AIの社内活用、ハラスメント対応方針2件、採用とDXの掲載、新キャラクター）は会社の取り組みが中心で、財産の相談の中身に触れるものはありません。2025年のリリースで確認した会社紹介文は「数少ない上場企業」「チェスターグループとの統合」を含みますが、独立系、費用の考え方、顧問税理士との分担は入っていません。</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag cit">サイテーション</span><span>12月の調査リリース2本と総括と展望レポートで、事業の話題のリリースを増やす（土台）</span></li>
+          <li><span class="tag cit">サイテーション</span><span>会社紹介文を、言葉の設計の文案に沿って改める（4の文案）</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
   <section id="channels">
-    <span class="kicker">5　施策の一覧</span>
+    <span class="kicker">6　施策の一覧</span>
     <h2>経路別の施策と時期</h2>
     <p class="lead">同じ施策を、経路ごとに並べ直しました。どの基準に効くかを末尾に記しています。</p>
     <div class="chcols">
@@ -571,13 +650,14 @@ section{margin-top:52px}
         <ul>
           <li>実績数値のテキスト化<span class="m">対応済み｜土台</span></li>
           <li>証券コード、チェスターグループとの統合の明記<span class="m">10〜11月｜土台</span></li>
-          <li>解説記事に監修者の実名と資格<span class="m">10〜11月｜土台</span></li>
+          <li>監修者の記載を追加する記事の選定（IDEATECHから例示）<span class="m">10〜11月｜土台</span></li>
           <li>家族信託のページの復旧<span class="m">10〜11月｜基準③</span></li>
           <li>役割分担の一文（申告は顧問税理士に）<span class="m">11月｜基準②</span></li>
           <li>料金の考え方のページ（中立性、無料の初回相談も説明）<span class="m">12月上旬｜基準①</span></li>
           <li>会計事務所向けの連携の進め方のページ<span class="m">12月〜｜基準②</span></li>
           <li>報酬ページの階層、2サイトの一本化、構造化データ<span class="m">来期のサイト整理｜土台</span></li>
           <li>「総合財産コンサルティングとは」のページ<span class="m">来期のサイト整理｜基準③</span></li>
+          <li>コラム一覧に記事リンクを直接出す。記事ごとの説明文<span class="m">11月〜（制作会社）｜土台</span></li>
         </ul>
       </div>
       <div class="chcol con">
@@ -591,6 +671,8 @@ section{margin-top:52px}
           <li>顧問税理士がいる経営者向けの記事<span class="m">12月｜基準②</span></li>
           <li>年末の「総括と展望」レポート<span class="m">12月｜基準③</span></li>
           <li>調査と記事の見出し・本文に、結びつけたい4語を使う<span class="m">11月〜｜言葉の設計</span></li>
+          <li>既存コラム「不動産売却の相談はどこにする？」に貴社の事実と監修者を追加。同じ型で企業オーナー向けを新規作成<span class="m">11〜12月｜基準①②</span></li>
+          <li>一般解説はチェスターの解説ページにリンクし、題材を分ける<span class="m">11月〜｜基準③</span></li>
           <li>税理士・会計事務所側の調査<span class="m">来期・ご判断｜基準②</span></li>
         </ul>
       </div>
@@ -602,6 +684,7 @@ section{margin-top:52px}
           <li>料金公開のニュース化<span class="m">ご判断後｜基準①</span></li>
           <li>総括と展望レポートのリリース、専門メディアへのご案内<span class="m">12月｜基準③</span></li>
           <li>リリース末尾の会社紹介文を改め、選ぶ理由の言葉を毎回入れる<span class="m">11月〜｜言葉の設計</span></li>
+          <li>社外の家族信託の記事（オーナーズ・スタイル・ネット）を家族信託ページから紹介<span class="m">10〜11月｜基準③</span></li>
           <li>事業の話題でのリリースの比率を上げる<span class="m">来期｜土台</span></li>
           <li>連携先のサイトでの貴社の紹介のされ方を整える<span class="m">来期｜土台</span></li>
         </ul>
@@ -609,31 +692,50 @@ section{margin-top:52px}
     </div>
   </section>
 
-  <!-- 6 -->
+  <!-- 7 -->
   <section id="asks">
-    <span class="kicker">6　お願いしたいこと</span>
-    <h2>貴社にご判断・ご協力をお願いしたいこと</h2>
-    <p class="lead">いずれも事業側で決めていただく事項です。決まりしだい、Webサイトとコンテンツに反映します。</p>
+    <span class="kicker">7　お願いしたいこと</span>
+    <h2>ご判断・ご協力をお願いしたいことと、10月の定例で確認できたこと</h2>
+    <p class="lead">決まりしだい、Webサイトとコンテンツに反映します。</p>
     <div class="asks">
       <div class="zone biz">
-        <h4><span class="tag biz">事業</span>ご判断</h4>
+        <h4><span class="tag biz">事業</span>ご判断をお願いしたいこと</h4>
         <ol class="small">
-          <li>報酬体系をどこまで公開するか（基準①）<span class="wait">10月中</span></li>
-          <li>役割分担の明記と、提携先の会計事務所へのお伝えの仕方。相続税の申告の書き方（基準②）<span class="wait">11月</span></li>
-          <li>社長の考え方を対外的な表現に使うこと（基準③）<span class="wait">10月中</span></li>
+          <li>報酬体系をどこまで公開するか（基準①）<span class="wait">10月中</span><span class="d">無料の範囲、顧問契約の月額の目安、実行報酬の項目。料金を公開したこと自体をリリースにするかもあわせて</span></li>
+          <li>「税務申告は顧問税理士に残す」の明記（基準②）<span class="wait">11月</span><span class="d">10月の定例で前向きなご意向をいただきました。進め方を改めてご説明したうえで、提携先の会計事務所へのお伝えの仕方と、相続税の申告の書き方を決めていただきたいと考えています</span></li>
         </ol>
       </div>
       <div class="zone biz">
         <h4><span class="tag biz">事業</span>コンサルティング部門へのご協力</h4>
         <ol class="small">
-          <li>費用事例の題材のご提供と、期間・費用の目安のご確認</li>
-          <li>解説記事とコラムの監修（実名・資格の記載）</li>
+          <li>費用事例の題材のご提供と、期間・費用の目安のご確認（基準①）<span class="d">モデルケース3本。財産基本報告書の見本、お客様の声などを題材の候補としています</span></li>
+          <li>これから作るコラムと解説の監修（基準③と土台）<span class="d">実名と資格を記載します。既存の記事は、追加で付けるとよい記事をIDEATECHから2〜3本お示しします。確認した8月の記事のテキストでは監修者の記載が見当たらなかったため、記載の場所もあわせてご確認ください</span></li>
         </ol>
+      </div>
+      <div class="zone biz">
+        <h4><span class="tag biz">事業</span>広報で進めていただくこと</h4>
+        <ol class="small">
+          <li>調査票2本（相談先の選び方と費用、顧問税理士との役割分担）のご確認</li>
+          <li>重点の問いの一覧（Excel）のご確認<span class="d">IDEATECHからお送りした後</span></li>
+          <li>コーポレートサイトの会社概要への証券コードの記載</li>
+          <li>AIで伝えることとサイトで伝えることの整理と、サイト制作会社との共有<span class="d">整理いただいた内容に、IDEATECHから意見をお出しします</span></li>
+          <li>コラム一覧の作りと、記事ごとの説明文について、制作会社へのご確認</li>
+        </ol>
+      </div>
+      <div class="zone done">
+        <h4><span class="okmark">確認済み</span>10月の定例で確認できたこと</h4>
+        <ul class="small">
+          <li>社長の考え方は、対外的な表現に使ってよい前提で進める。最終の表現は貴社で調整</li>
+          <li>財産基本報告書の見本の試算は、外部に出している資料のため、コラムで使える</li>
+          <li>企画①は、調査と受け皿のコンテンツ（費用事例など）を進める</li>
+          <li>年内のサイト整理では「総合財産コンサルティングとは」のページは設けず、来期のサイトで検討する</li>
+          <li>トップの実績数値のテキスト化は対応済み（反映待ち）</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <p class="foot">出典：IDEATECH AI応答モニタリング（2026年8月・9月）、非指名の問いの推奨状況（2026年9月17日取得）、オーナー経営者への検証調査（2026年9月、259名）、貴社ご提供資料、10月定例での協議内容。日付は目安です。</p>
+  <p class="foot">出典：IDEATECH AI応答モニタリング（2026年8月・9月）、非指名の問いの推奨状況（2026年9月17日取得）、オーナー経営者への検証調査（2026年9月、259名）、貴社ご提供資料、貴社サイトのコラムとお知らせ（2026年10月13日確認）、10月定例での協議内容。日付は目安です。</p>
 </main>
 <script>
 (function(){
