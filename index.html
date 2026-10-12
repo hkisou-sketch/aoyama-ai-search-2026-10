@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>青山財産ネットワークス様｜AI検索対策の全体像（2026年10月）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F6F7FA; --panel:#FFFFFF; --panel2:#F5F7FC; --ink:#1A1F2E; --ink2:#566175; --line:#DCE2EC;
+  --navy:#0B47B0; --navy-soft:#E8EEF9; --navy-ink:#0B3A8F;
+  --web:#1D5FC4; --web-bg:#E3EDFB; --web-ink:#0E3F86;
+  --con:#2E7D4F; --con-bg:#E2F2E7; --con-ink:#1E5A37;
+  --cit:#C0620B; --cit-bg:#FBEADB; --cit-ink:#7A3D05;
+  --biz:#B39563; --biz-bg:#F7F1E6; --biz-ink:#5C4722;
+  --ai:#7A70D4; --ai-bg:#EFEDFB; --ai-ink:#3C3489;
+  --yel:#FFD84A; --yel-ink:#4A3600;
+  --wait-bg:#FBE9EC; --wait-ink:#8A1F2E;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1522; --panel:#171F30; --panel2:#1C2539; --ink:#EEF2F8; --ink2:#A8B3C6; --line:#2C3850;
+    --navy:#8DB0F0; --navy-soft:#1D2C4C; --navy-ink:#C9D8F7;
+    --web:#7FA9EE; --web-bg:#1B2C4A; --web-ink:#C6D9F8;
+    --con:#7CCB9A; --con-bg:#173527; --con-ink:#BFE6CC;
+    --cit:#F0A060; --cit-bg:#3D2814; --cit-ink:#F7CFA8;
+    --biz:#CDB487; --biz-bg:#2E2718; --biz-ink:#EADCC0;
+    --ai:#ADA6F0; --ai-bg:#26234A; --ai-ink:#D9D5FA;
+    --yel:#E7C078; --yel-ink:#2A2000;
+    --wait-bg:#4A1E2A; --wait-ink:#F2A9B5;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1522; --panel:#171F30; --panel2:#1C2539; --ink:#EEF2F8; --ink2:#A8B3C6; --line:#2C3850;
+  --navy:#8DB0F0; --navy-soft:#1D2C4C; --navy-ink:#C9D8F7;
+  --web:#7FA9EE; --web-bg:#1B2C4A; --web-ink:#C6D9F8;
+  --con:#7CCB9A; --con-bg:#173527; --con-ink:#BFE6CC;
+  --cit:#F0A060; --cit-bg:#3D2814; --cit-ink:#F7CFA8;
+  --biz:#CDB487; --biz-bg:#2E2718; --biz-ink:#EADCC0;
+  --ai:#ADA6F0; --ai-bg:#26234A; --ai-ink:#D9D5FA;
+  --yel:#E7C078; --yel-ink:#2A2000;
+  --wait-bg:#4A1E2A; --wait-ink:#F2A9B5;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;font-size:15px;line-height:1.8}
+main{max-width:1060px;margin:0 auto;padding:44px 20px 80px}
+h1{font-size:26px;line-height:1.4;margin:0 0 4px;font-weight:700}
+h2{font-size:20px;line-height:1.45;margin:0 0 6px;font-weight:700}
+h3{font-size:16px;line-height:1.5;margin:0 0 6px;font-weight:700}
+p{margin:0 0 10px}
+ul{margin:0;padding-left:1.25em}
+li{margin:4px 0}
+.sub{color:var(--ink2);margin:0}
+.lead{color:var(--ink2);margin:0 0 18px}
+section{margin-top:52px}
+.kicker{display:inline-block;font-size:12.5px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:6px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.note{font-size:13px;color:var(--ink2)}
+
+.purpose{background:var(--navy);color:#fff;border-radius:12px;padding:22px 26px;margin-top:22px}
+:root[data-theme="dark"] .purpose{background:#1E3F7E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .purpose{background:#1E3F7E}}
+.purpose .k{font-size:12.5px;opacity:.85;margin-bottom:4px}
+.purpose .t{font-size:19px;font-weight:700;line-height:1.6;margin:0}
+
+/* legend */
+.legend{display:grid;grid-template-columns:1fr 1.4fr;gap:12px;margin-top:16px}
+.legend .panel{padding:14px 18px}
+.legend h3{font-size:13px;color:var(--ink2);margin-bottom:8px}
+.lg{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-start}
+.lg .it{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;flex:1 1 200px}
+
+/* tags */
+.tag{display:inline-block;font-size:12px;font-weight:700;line-height:1.5;border-radius:4px;padding:1px 8px;white-space:nowrap;vertical-align:1px}
+.tag.web{background:var(--web-bg);color:var(--web-ink);border-left:4px solid var(--web)}
+.tag.con{background:var(--con-bg);color:var(--con-ink);border-left:4px solid var(--con)}
+.tag.cit{background:var(--cit-bg);color:var(--cit-ink);border-left:4px solid var(--cit)}
+.tag.biz{background:var(--biz-bg);color:var(--biz-ink);border:1px solid var(--biz)}
+.tag.ai{background:var(--ai-bg);color:var(--ai-ink);border:1px dashed var(--ai)}
+.wait{display:inline-block;font-size:12px;font-weight:700;color:var(--wait-ink);background:var(--wait-bg);border-radius:999px;padding:1px 10px;margin-left:6px;vertical-align:1px}
+
+/* zones: business vs AI */
+.zone{border-radius:10px;padding:14px 16px}
+.zone h4{font-size:13px;margin:0 0 6px;font-weight:700;display:flex;align-items:center;gap:8px}
+.zone.biz{background:var(--biz-bg);border:1px solid var(--biz)}
+.zone.biz h4{color:var(--biz-ink)}
+.zone.ai{background:var(--ai-bg);border:1px dashed var(--ai)}
+.zone.ai h4{color:var(--ai-ink)}
+
+/* flow (section 1) */
+.flow{display:grid;grid-template-columns:1fr 36px 1.15fr 36px 1fr;align-items:stretch}
+.flow .arr{display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:20px}
+.ch{display:flex;flex-direction:column;gap:8px}
+.chb{border-radius:10px;padding:10px 14px}
+.chb .t{font-weight:700;display:block}
+.chb .s{font-size:13px;display:block}
+.chb.web{background:var(--web-bg);border-left:6px solid var(--web)} .chb.web .t{color:var(--web-ink)}
+.chb.con{background:var(--con-bg);border-left:6px solid var(--con)} .chb.con .t{color:var(--con-ink)}
+.chb.cit{background:var(--cit-bg);border-left:6px solid var(--cit)} .chb.cit .t{color:var(--cit-ink)}
+.chb .s{color:var(--ink2)}
+
+/* structure */
+.stack{display:flex;flex-direction:column}
+.up{display:flex;justify-content:center;height:28px;color:var(--ink2)}
+.goalrow{display:grid;grid-template-columns:1fr 36px 1fr;align-items:stretch}
+.node{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;border-radius:12px;padding:14px 18px;text-align:center}
+.node:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.node .t{font-weight:700;font-size:15.5px;display:block}
+.node .s{font-size:13px;color:var(--ink2);display:block}
+.node.g-ai{background:var(--ai-bg);border:1px dashed var(--ai)} .node.g-ai .t{color:var(--ai-ink)}
+.node.g-biz{background:var(--biz-bg);border:1px solid var(--biz)} .node.g-biz .t{color:var(--biz-ink)}
+.policy{border-radius:14px;background:var(--navy-soft);padding:14px 16px 16px}
+.policy .head{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;text-align:center;margin-bottom:12px}
+.policy .head:focus-visible{outline:2px solid var(--navy)}
+.policy .head .t{font-weight:700;color:var(--navy-ink);display:block}
+.policy .head .s{font-size:13px;color:var(--ink2)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.node.rule{background:var(--panel);border:1px solid var(--line)}
+.node.rule .n{display:inline-block;font-size:12px;font-weight:700;color:var(--yel-ink);background:var(--yel);border-radius:4px;padding:1px 8px;margin-bottom:6px}
+.node .chips{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.node.base{background:var(--panel2);border:1px solid var(--line)}
+.node[aria-pressed="true"]{box-shadow:0 0 0 2px var(--navy) inset}
+.hint{font-size:12.5px;color:var(--ink2);text-align:center;margin-top:10px}
+
+.detail{margin-top:16px}
+.dpanel{display:none}
+.dpanel.on{display:block}
+.dpanel h3{color:var(--navy-ink);font-size:17px}
+.dtop{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 14px}
+.measures h4{font-size:13px;margin:0 0 6px;color:var(--ink2)}
+.mlist{list-style:none;padding:0;margin:0}
+.mlist li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line)}
+.mlist li:first-child{border-top:0}
+.mlist .when{margin-left:auto;font-size:12.5px;color:var(--ink2);white-space:nowrap;padding-left:8px}
+.quote{border-left:4px solid var(--web);background:var(--web-bg);padding:10px 14px;margin:6px 0 0;color:var(--web-ink);font-size:14px;border-radius:0}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.small{font-size:13px}
+
+/* ladder */
+.ladder{display:grid;grid-template-columns:1fr 36px 1.45fr;gap:10px 0;align-items:stretch}
+.lh{font-size:12.5px;font-weight:700;color:var(--ink2);padding:0 4px 2px}
+.lcell{border-radius:10px;padding:12px 16px;background:var(--panel);border:1px solid var(--line)}
+.lcell .t{font-weight:700;display:block}
+.lcell .s{font-size:13px;color:var(--ink2);display:block}
+.lcell .v{font-size:13px;display:block;margin-top:4px}
+.lcell .chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.lcell.ai{background:var(--ai-bg);border:1px dashed var(--ai)} .lcell.ai .t{color:var(--ai-ink)}
+.lcell.biz{background:var(--biz-bg);border:1px solid var(--biz)} .lcell.biz .t{color:var(--biz-ink)}
+.arrowcell{display:flex;align-items:center;justify-content:center;color:var(--ink2)}
+.rulers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+
+/* co-occurrence */
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.q{border-radius:10px;padding:14px 16px;background:var(--ai-bg);border:1px dashed var(--ai)}
+.q .t{font-weight:700;color:var(--ai-ink)}
+.q .w{font-size:12.5px;color:var(--ink2);margin:2px 0 6px}
+.q.make{border:2px solid var(--ai)}
+
+/* word design */
+.words{display:grid;grid-template-columns:1fr;gap:12px}
+.wrow{display:grid;grid-template-columns:1fr 1.35fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.wrow .wa{background:var(--ai-bg);border-right:1px dashed var(--ai);padding:14px 16px}
+.wrow .wa .t{font-weight:700;color:var(--ai-ink);display:block}
+.wrow .wa .w{font-size:13px;margin:4px 0 0}
+.wrow .wa .st{font-size:12.5px;color:var(--ink2);margin:6px 0 0}
+.wrow .wu{padding:12px 16px}
+.wrow .wu ul{list-style:none;padding:0;margin:0}
+.wrow .wu li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.65}
+.wrow .wu li:first-child{border-top:0}
+.wrow.key{border:2px solid var(--ai)}
+.bp{border-left:4px solid var(--cit);background:var(--cit-bg);color:var(--cit-ink);padding:10px 14px;font-size:14px;margin-top:6px}
+
+/* channel table */
+.chcols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.chcol{border-radius:12px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.chcol .hd{padding:12px 16px}
+.chcol .hd .t{font-weight:700;display:block}
+.chcol .hd .s{font-size:12.5px;display:block}
+.chcol.web .hd{background:var(--web-bg);border-bottom:3px solid var(--web)} .chcol.web .hd .t{color:var(--web-ink)}
+.chcol.con .hd{background:var(--con-bg);border-bottom:3px solid var(--con)} .chcol.con .hd .t{color:var(--con-ink)}
+.chcol.cit .hd{background:var(--cit-bg);border-bottom:3px solid var(--cit)} .chcol.cit .hd .t{color:var(--cit-ink)}
+.chcol .hd .s{color:var(--ink2)}
+.chcol ul{list-style:none;padding:6px 16px 12px;margin:0}
+.chcol li{padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.65}
+.chcol li:first-child{border-top:0}
+.chcol li .m{display:block;font-size:12px;color:var(--ink2)}
+
+/* asks */
+.asks{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.asks .zone{padding:16px 18px}
+.asks ol{margin:0;padding-left:1.3em}
+.asks li{margin:6px 0}
+.foot{margin-top:44px;font-size:12.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:14px}
+
+@media (max-width:820px){
+  .wrow{grid-template-columns:1fr}
+  .wrow .wa{border-right:0;border-bottom:1px dashed var(--ai)}
+  .legend,.dtop,.checks,.rulers,.quad,.asks{grid-template-columns:1fr}
+  .rules,.chcols{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .arr{transform:rotate(90deg);height:32px}
+  .goalrow{grid-template-columns:1fr}
+  .goalrow .arr{transform:rotate(90deg);height:28px}
+  .ladder{grid-template-columns:1fr 26px 1.2fr}
+  h1{font-size:22px}
+}
+@media print{
+  .dpanel{display:block !important;margin-bottom:18px;break-inside:avoid}
+  .hint{display:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>青山財産ネットワークス様｜AI検索対策の全体像</h1>
+  <p class="sub">2026年10月　株式会社IDEATECH</p>
+
+  <div class="purpose">
+    <div class="k">取り組みの目的</div>
+    <p class="t">財産の相談でAIに貴社を勧めてもらうために、貴社が当てはまる「相談先の選び方」をAIに示します。</p>
+  </div>
+
+  <div class="legend">
+    <div class="panel">
+      <h3>この資料の区分け①　事業の話か、AI上の話か</h3>
+      <div class="lg">
+        <div class="it"><span class="tag biz">事業</span><span>貴社が実際に行っていること、貴社の中で決めること</span></div>
+        <div class="it"><span class="tag ai">AI上</span><span>AIの回答の中で起きていること、毎月測っている数字</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>この資料の区分け②　施策の経路</h3>
+      <div class="lg">
+        <div class="it"><span class="tag web">Webサイト</span><span>貴社サイトの情報の置き方と書き方</span></div>
+        <div class="it"><span class="tag con">コンテンツ</span><span>調査、記事、事例など新しく作るもの</span></div>
+        <div class="it"><span class="tag cit">サイテーション</span><span>社外の記事やリリースで、貴社が言及されること</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <section id="flow">
+    <span class="kicker">1　考え方</span>
+    <h2>貴社の事業の事実を、3つの経路でAIに届けます</h2>
+    <p class="lead">AIは、貴社のWebサイト、貴社が出すコンテンツ、社外の記事を読んで回答を作ります。事業の中身はそのままに、AIが読める形と場所を整えるのがこの取り組みです。</p>
+    <div class="flow">
+      <div class="zone biz">
+        <h4><span class="tag biz">事業</span>貴社の事実</h4>
+        <ul class="small">
+          <li>原則、現状分析から提案までは無料。顧問契約は月額×期間</li>
+          <li>決算と毎年の申告は顧問税理士、承継と財産全体は貴社が担う</li>
+          <li>5つの視点で財産全体を点検してから、個別の施策を決める</li>
+          <li>東証スタンダード上場、チェスターグループとの統合</li>
+        </ul>
+      </div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="ch">
+        <div class="chb web"><span class="t">Webサイト</span><span class="s">料金、役割分担、実績を読める形で置く</span></div>
+        <div class="chb con"><span class="t">コンテンツ</span><span class="s">調査と記事で、選び方の基準を示す</span></div>
+        <div class="chb cit"><span class="t">サイテーション</span><span class="s">リリースや社外の記事で、事業の話題として語られる</span></div>
+      </div>
+      <div class="arr" aria-hidden="true">→</div>
+      <div class="zone ai">
+        <h4><span class="tag ai">AI上</span>AIの回答</h4>
+        <ul class="small">
+          <li>AIが読んだページのうち、貴社のページは7.3%。社外のメディアや記事が約6割</li>
+          <li>社外での貴社の言及のうち、事業の話題は94件（5.8%）。多くは株価やIRの話題</li>
+          <li>社名を出さずに相談先を聞くと、貴社が挙がるのは132件中7件</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="frame">
+    <span class="kicker">2　全体の構造</span>
+    <h2>目的・方針・土台の3段</h2>
+
+    <div class="stack" role="group" aria-label="全体の構造">
+      <div class="goalrow">
+        <button class="node g-ai" data-k="goal" aria-pressed="true"><span class="t">相談先として、AIが貴社を挙げる</span><span class="s"><span class="tag ai">AI上</span>　目的</span></button>
+        <div class="arr up" aria-hidden="true" style="height:auto;align-items:center">→</div>
+        <button class="node g-biz" data-k="goal" aria-pressed="false"><span class="t">相談と顧問契約につながる</span><span class="s"><span class="tag biz">事業</span>　その先の成果</span></button>
+      </div>
+      <div class="up" aria-hidden="true"><svg width="20" height="28" viewBox="0 0 20 28"><path d="M10 26V4M3 10l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="policy">
+        <button class="head" data-k="policy"><span class="t">方針：相談先の選び方の基準を示し、貴社が当てはまることをAIに伝える</span><span class="s">選び方の基準は3つです</span></button>
+        <div class="rules">
+          <button class="node rule" data-k="r1" aria-pressed="false"><span class="n">基準①</span><span class="t">料金を先に示す</span><span class="s">相談前に費用の見当がつく</span><span class="chips"><span class="tag web">Web</span><span class="tag con">コンテンツ</span><span class="tag cit">サイテーション</span></span></button>
+          <button class="node rule" data-k="r2" aria-pressed="false"><span class="n">基準②</span><span class="t">顧問税理士は変えない</span><span class="s">申告は税理士、承継は貴社</span><span class="chips"><span class="tag web">Web</span><span class="tag con">コンテンツ</span><span class="tag cit">サイテーション</span></span></button>
+          <button class="node rule" data-k="r3" aria-pressed="false"><span class="n">基準③</span><span class="t">財産全体を見る</span><span class="s">総合財産コンサルティング</span><span class="chips"><span class="tag web">Web</span><span class="tag con">コンテンツ</span><span class="tag cit">サイテーション</span></span></button>
+        </div>
+      </div>
+      <div class="up" aria-hidden="true"><svg width="20" height="28" viewBox="0 0 20 28"><path d="M10 26V4M3 10l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <button class="node base" data-k="base" aria-pressed="false"><span class="t">土台：AIが貴社を読める・信じられる</span><span class="s">今ある実績と事実を、AIが読める形に直す</span><span class="chips"><span class="tag web">Web</span><span class="tag cit">サイテーション</span></span></button>
+    </div>
+
+    <div class="detail panel" aria-live="polite">
+
+      <div class="dpanel on" id="d-goal">
+        <h3>目的：相談先として、AIが貴社を挙げる</h3>
+        <div class="dtop">
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況（2026年9月）</h4>
+            <ul class="small">
+              <li>社名を出して聞くと、40件中36件の回答で貴社を正しく説明</li>
+              <li>社名を出さずに相談先を聞くと、132件中7件（5.3%）</li>
+              <li>AIがまず挙げる相手：弁護士・司法書士などの士業102件、顧問税理士・公的窓口49件、信託銀行・証券37件、大手税理士法人25件</li>
+            </ul>
+          </div>
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>その先の成果</h4>
+            <ul class="small">
+              <li>AI経由のサイト訪問は月128件（全体の0.42%）</li>
+              <li>件数はまだ小さいため、訪問数より、問い合わせの中身と顧問契約につながったかを見ます</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dpanel" id="d-policy">
+        <h3>方針：相談先の選び方の基準を示す</h3>
+        <div class="dtop">
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況</h4>
+            <ul class="small">
+              <li>AIは「料金が明確か」「中立か」「会社と個人を一緒に見るか」といった選び方をよく語るが、当てはまる会社名をまだ挙げていない（選び方を聞く問いで、貴社の言及は8月・9月とも0/36）</li>
+              <li>相続・事業承継・不動産の言葉では、貴社と大手税理士法人に差がない</li>
+              <li>貴社名の近くに出る割合で、貴社が競合を上回る言葉：報酬の透明性 40.8%（辻・本郷 16.7%、山田&amp;パートナーズ 0%）、上場企業 36.7%（同 8.3%、16.7%）、独立系 24.5%（同 16.7%、0%）</li>
+            </ul>
+          </div>
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>貴社の事実</h4>
+            <p class="small" style="margin:0">料金の明示、顧問税理士との分担、財産全体を見る進め方は、いずれも貴社がすでに行っていることです。新しい方針を作るのではなく、行っていることを選び方の基準として言葉にします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dpanel" id="d-r1">
+        <h3>基準①　料金を先に示す相談先を選ぶ</h3>
+        <div class="dtop">
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>貴社の事実</h4>
+            <ul class="small">
+              <li>原則、現状分析から提案までは無料</li>
+              <li>有料は顧問契約（プランニングから実行支援、月額×期間）から</li>
+              <li>実行報酬は項目別。不動産の仲介や建築が発生した場合は、顧問報酬の総額分を減額</li>
+            </ul>
+          </div>
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況</h4>
+            <ul class="small">
+              <li>AIは費用について13件の回答で語っているが、実額を示す会社として挙げたのは0社</li>
+              <li>「報酬の透明性」が貴社名の近くに出る割合は40.8%で、競合を大きく上回る</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measures">
+          <h4>施策</h4>
+          <ul class="mlist">
+            <li><span class="tag con">コンテンツ</span><span>調査「オーナー経営者の財産の相談先の選び方と費用」（100名）</span><span class="when">10〜11月</span></li>
+            <li><span class="tag web">Webサイト</span><span>料金の考え方のページ（無料の範囲、顧問契約の目安、実行報酬、減額の決まり）</span><span class="when">12月上旬</span></li>
+            <li><span class="tag con">コンテンツ</span><span>費用事例3本と、相談先の選び方のページ</span><span class="when">12月上旬</span></li>
+            <li><span class="tag cit">サイテーション</span><span>調査結果のリリース。料金を公開したこと自体のニュース化もご検討ください</span><span class="when">12月中旬</span></li>
+            <li><span class="tag cit">サイテーション</span><span>リリース末尾の会社紹介文に「費用の目安を事前に示す」と入れる（言葉の設計）</span><span class="when">11月〜</span></li>
+          </ul>
+        </div>
+        <div class="checks">
+          <div class="zone ai"><h4><span class="tag ai">AI上</span>確認する問い</h4><p class="small" style="margin:0">モニタリングの問い #28（3社比較）、#29（自社商品を売らない第三者）と、11月から追加する費用の問い</p></div>
+          <div class="zone biz"><h4><span class="tag biz">事業</span>ご判断をお願いしたいこと<span class="wait">10月中</span></h4><p class="small" style="margin:0">報酬体系をどこまで公開するか（無料の範囲、顧問契約の月額の目安、実行報酬の項目）</p></div>
+        </div>
+      </div>
+
+      <div class="dpanel" id="d-r2">
+        <h3>基準②　顧問税理士は変えずに、役割を分けて相談できる先を選ぶ</h3>
+        <p class="small">この基準は、オーナー経営者には「今の顧問税理士を替えなくてよい」、顧問税理士には「顧問先を失わない」と伝わるものです。両方が安心して貴社を選び、紹介できる状態を目指します。</p>
+        <div class="dtop">
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>貴社の事実</h4>
+            <ul class="small">
+              <li>決算と毎年の申告は顧問税理士、事業承継・相続・会社と個人の財産全体の設計は貴社</li>
+              <li>全国の税理士法人・会計事務所と提携</li>
+              <li>5つの視点のうち、円滑な経営承継とまさかへの備えは、税務申告とは別の領域</li>
+              <li>9月の調査では、顧問税理士への迷いを持つ経営者の39.1%が「顧問税理士は変えたくないが、相談できる先はあるか」と答えた</li>
+            </ul>
+          </div>
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況</h4>
+            <ul class="small">
+              <li>顧問税理士の立場で相談先を聞くと、AIが勧めるのは「申告は顧問税理士に戻す」とサイトに書いている会社。貴社は0件</li>
+              <li>「顧問税理士を変えずに相談できる先」としてAIが挙げる会社は、8月と9月で入れ替わった</li>
+              <li>相談者にとっての重要度が77.8%の言葉「顧問税理士との役割分担」が、貴社名の近くに出る割合は12.2%</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measures">
+          <h4>施策</h4>
+          <ul class="mlist">
+            <li><span class="tag web">Webサイト</span><span>サービス紹介、よくある質問、初回相談の案内に、役割分担を一文で明記<span class="quote" style="display:block">決算と毎年の税務申告は、これまでの顧問税理士にお任せください。当社は事業承継、相続、会社と個人の財産全体の設計を担い、顧問税理士と連携して進めます。（文案）</span></span><span class="when">11月</span></li>
+            <li><span class="tag web">Webサイト</span><span>会計事務所向けに、連携の進め方のページ（申告はどちらが担うか、紹介の流れ、情報共有の仕方）</span><span class="when">12月〜</span></li>
+            <li><span class="tag con">コンテンツ</span><span>調査「オーナー経営者の顧問税理士との役割分担と、財産の相談先の選び方」（顧問税理士がいる経営者100名）</span><span class="when">11月</span></li>
+            <li><span class="tag con">コンテンツ</span><span>顧問税理士がいる経営者向けに、相談先の選び方と進め方の記事</span><span class="when">12月</span></li>
+            <li><span class="tag cit">サイテーション</span><span>調査結果のリリース。タイトルに「顧問税理士との役割分担」を入れ、サイトの一文を先に出した状態で発表</span><span class="when">12月上旬</span></li>
+            <li><span class="tag con">コンテンツ</span><span>税理士・会計事務所側の調査（両側から基準を裏づける）</span><span class="when">来期・ご判断</span></li>
+          </ul>
+        </div>
+        <div class="checks">
+          <div class="zone ai"><h4><span class="tag ai">AI上</span>確認する問い</h4><p class="small" style="margin:0">#1・#3（顧問税理士には税務を任せているが、資産の組み替えは相談できていない）、#31（税理士の立場のまま連携できる外部）。あわせて#30・#32（提携先・紹介先を選ぶ問い）</p></div>
+          <div class="zone biz"><h4><span class="tag biz">事業</span>ご判断をお願いしたいこと<span class="wait">11月</span></h4>
+            <ul class="small">
+              <li>役割分担を明記するか。提携先の会計事務所へ事前にお伝えするか</li>
+              <li>相続税の申告の書き方。連携先の税理士法人チェスターが担う領域と重ならないよう、「決算と毎年の申告は顧問税理士、相続税の申告は顧問税理士か連携先の税理士法人をご希望で」のように分けて書く案です</li>
+              <li>連携の進め方のページで、紹介料の扱いにどこまで触れるか（AIは提携先の確認点として、紹介料の透明性を挙げています）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="dpanel" id="d-r3">
+        <h3>基準③　財産全体を見てから、個別に決める相談先を選ぶ</h3>
+        <div class="dtop">
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>貴社の事実</h4>
+            <ul class="small">
+              <li>社長の考え方「総合の対義語は部分」</li>
+              <li>5つの視点（円滑な経営承継、円滑な財産承継、相続税の納税資金の確保、財産の運用と保全、まさかへの備え）で全体を点検してから、個別の施策を決める</li>
+              <li>プランニングから実行、継続フォローまで担う</li>
+            </ul>
+          </div>
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況</h4>
+            <ul class="small">
+              <li>9月の調査で、経営者がAIに入力しそうな問いの中心は「誰に相談すべきか」より「何から整理すればいいか」</li>
+              <li>AIは「財産コンサルティング」という選択肢をほとんど挙げず、士業を勧める。Copilotが一度だけ「財産コンサルティング会社」を候補に挙げた</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measures">
+          <h4>施策</h4>
+          <ul class="mlist">
+            <li><span class="tag con">コンテンツ</span><span>コラム「〜だけで考えてはいけない」シリーズ。第1弾は財産基本報告書の見本の試算を使った「一次相続だけで分け方を決めてはいけない」</span><span class="when">11月〜</span></li>
+            <li><span class="tag con">コンテンツ</span><span>「何から整理すればいいか」に5つの視点で答える解説、まさかへの備えの解説</span><span class="when">11〜12月</span></li>
+            <li><span class="tag con">コンテンツ</span><span>年末の「総括と展望」レポート（金利、為替、新NISAなど、財産を取り巻く環境と来年の見通し）。納税資金と生前対策もここで扱う</span><span class="when">12月</span></li>
+            <li><span class="tag cit">サイテーション</span><span>総括と展望レポートのリリースと、専門メディアへのご案内</span><span class="when">12月</span></li>
+            <li><span class="tag web">Webサイト</span><span>家族信託のページの復旧。来期のサイト整理で「総合財産コンサルティングとは」を説明するページ</span><span class="when">10月〜来期</span></li>
+          </ul>
+        </div>
+        <div class="checks">
+          <div class="zone ai"><h4><span class="tag ai">AI上</span>確認する問い</h4><p class="small" style="margin:0">#2・#27（最初に誰に相談すべきか）、#18（独立系とは何が違うか）、#21（会社売却後の相談先）、#7・#8（急な相続や認知症への備え）。10月から、「財産コンサルティング」が選択肢として出るかも別に測ります</p></div>
+          <div class="zone biz"><h4><span class="tag biz">事業</span>ご判断をお願いしたいこと<span class="wait">10月中</span></h4><p class="small" style="margin:0">社長の考え方を対外的な表現に使うこと（使用できる前提で企画を進め、最終の表現は貴社でご確認いただく）</p></div>
+        </div>
+      </div>
+
+      <div class="dpanel" id="d-base">
+        <h3>土台：AIが貴社を読める・信じられる</h3>
+        <div class="dtop">
+          <div class="zone biz">
+            <h4><span class="tag biz">事業</span>貴社の事実</h4>
+            <ul class="small">
+              <li>東証スタンダード上場（証券コード8929）</li>
+              <li>チェスターグループとの統合</li>
+              <li>実績：平均10億円、3,735組、リピート率72%、満足度98.5%</li>
+            </ul>
+          </div>
+          <div class="zone ai">
+            <h4><span class="tag ai">AI上</span>いまの状況</h4>
+            <ul class="small">
+              <li>AIが読んだページのうち、貴社のページは7.3%。社外のメディアや記事が約6割</li>
+              <li>社外での貴社の言及のうち、事業の話題は94件（5.8%）</li>
+              <li>貴社のページを引用しながら、本文で別の会社名を書いた回答があった</li>
+            </ul>
+          </div>
+        </div>
+        <div class="measures">
+          <h4>施策</h4>
+          <ul class="mlist">
+            <li><span class="tag web">Webサイト</span><span>トップの実績数値を画像からテキストへ</span><span class="when">対応済み</span></li>
+            <li><span class="tag web">Webサイト</span><span>会社概要に証券コード、チェスターグループとの統合を明記</span><span class="when">10〜11月</span></li>
+            <li><span class="tag web">Webサイト</span><span>解説記事に監修者の実名と資格を記載（対象記事はIDEATECHから例示）</span><span class="when">10〜11月</span></li>
+            <li><span class="tag web">Webサイト</span><span>報酬体系のページをサイトの上の階層へ。2つのサイトで重なる情報を一本化</span><span class="when">来期のサイト整理</span></li>
+            <li><span class="tag web">Webサイト</span><span>サイトマップと構造化データ（制作会社）</span><span class="when">来期のサイト整理</span></li>
+            <li><span class="tag cit">サイテーション</span><span>事業の話題でのリリースの比率を上げる</span><span class="when">来期</span></li>
+            <li><span class="tag cit">サイテーション</span><span>連携先（税理士法人チェスターなど）のサイトでの、貴社の紹介のされ方を整える</span><span class="when">来期</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section id="measure">
+    <span class="kicker">3　測り方</span>
+    <h2>施策は「読める → 結びつく → 勧められる → 相談が来る」の順に効きます</h2>
+    <p class="lead">毎月のモニタリングの項目は、この4段のどれかを測っています。段1〜3はAI上の数字、段4は事業の成果です。</p>
+    <div class="ladder">
+      <div class="lh">施策</div><div></div><div class="lh">測るもの</div>
+      <div class="lcell"><span class="t">土台</span><span class="s">今ある事実をAIが読める形に</span><span class="chips"><span class="tag web">Webサイト</span></span></div>
+      <div class="arrowcell" aria-hidden="true">→</div>
+      <div class="lcell ai"><span class="t">段1　読める</span><span class="s">サイトの診断、社名を出した問い10問、AIが読んだページ</span><span class="v">社名を出した問い 36/40、貴社のページ 7.3%</span></div>
+      <div class="lcell"><span class="t">3つの基準＋言葉の設計</span><span class="s">調査、記事、リリースで使う言葉</span><span class="chips"><span class="tag con">コンテンツ</span><span class="tag cit">サイテーション</span></span></div>
+      <div class="arrowcell" aria-hidden="true">→</div>
+      <div class="lcell ai"><span class="t">段2　結びつく</span><span class="s">AIが貴社を何と一緒に語るか（共起語）、事業の話題での言及</span><span class="v">事業の話題での言及 94件 → 12か月で約3倍を目安。結びつけたい4語の割合</span></div>
+      <div class="lcell"><span class="t">3つの基準</span><span class="s">選び方の基準の明記と調査</span><span class="chips"><span class="tag web">Webサイト</span><span class="tag con">コンテンツ</span></span></div>
+      <div class="arrowcell" aria-hidden="true">→</div>
+      <div class="lcell ai"><span class="t">段3　勧められる</span><span class="s">社名を出さない問い33問、相談者別の選び方の問い27問、10月からの追加分</span><span class="v">社名を出さない問い 7/132、選び方の問い 0/36</span></div>
+      <div class="lcell"><span class="t">1〜3の積み上げ</span><span class="s">施策ではなく結果</span></div>
+      <div class="arrowcell" aria-hidden="true">→</div>
+      <div class="lcell biz"><span class="t">段4　相談が来る</span><span class="s">AI経由の訪問、問い合わせの中身、顧問契約</span><span class="v">AI経由の訪問 月128件（0.42%）。目標値は置かない</span></div>
+    </div>
+
+    <div class="rulers">
+      <div class="zone ai"><h4><span class="tag ai">AI上</span>段3の物差し1：会社名が出る問い（16問）</h4><p class="small" style="margin:0">AIが会社名を並べる問いでは、貴社が挙がったか、筆頭で勧められたかを数えます。9月は64件中7件、うち筆頭2件。</p></div>
+      <div class="zone ai"><h4><span class="tag ai">AI上</span>段3の物差し2：会社名が出ない問い（17問）</h4><p class="small" style="margin:0">「士業に相談を」で回答が終わる問いでは、AIが描く相談先の姿が貴社の提供の形と重なるかを見ます。9月は68件中23件。</p></div>
+    </div>
+    <p class="note" style="margin-top:10px">3つの基準はまず物差し2を動かし、その結果として物差し1が動きます。比較のため70問の文言は変えず、重点の問いを決めて毎月追います。</p>
+  </section>
+
+  <!-- 4 -->
+  <section id="cooc">
+    <span class="kicker">4　言葉の設計（共起語）</span>
+    <h2>AIに結びつけたい言葉を決め、コンテンツとリリースで使います</h2>
+    <p class="lead">AIの回答で貴社名の近くに出る言葉（共起語）は、貴社のサイト、コンテンツ、リリースに書かれた言葉から作られます。左がAI上のいまの状態、右がその言葉を使う場所です。結果は毎月の計測（段2）で確認します。</p>
+    <div class="words">
+      <div class="wrow key">
+        <div class="wa"><span class="t">これから結びつける4語</span><p class="w">顧問税理士との役割分担、実行まで担えるか、家族信託・民事信託、自社株・株価対策</p><p class="st"><span class="tag ai">AI上</span>　相談者にとって重要なのに、貴社名の近くにほとんど出ない。役割分担は重要度77.8%に対し12.2%</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag con">コンテンツ</span><span>調査の設問と記事の見出し・本文で、この言葉をそのまま使う。役割分担は企画③の調査と記事（基準②）、実行まで担えるかは費用事例（基準①）、家族信託と自社株はコラム（基準③）</span></li>
+          <li><span class="tag cit">サイテーション</span><span>調査リリースのタイトルと要約に入れる。例：「顧問税理士との役割分担」を見出しに置く</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow">
+        <div class="wa"><span class="t">選ぶ理由として置き直す語</span><p class="w">報酬の透明性、富裕層・オーナー特化、上場企業、独立系</p><p class="st"><span class="tag ai">AI上</span>　貴社が競合を上回っている言葉。ただし相談先を選ぶ場面ではまだ語られていない</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag cit">サイテーション</span><span>リリース末尾の会社紹介文（ボイラープレート）に、毎回同じ言葉で入れる。リリースは配信先のサイトに転載され、AIが繰り返し読む<span class="bp" style="display:block">文案：株式会社青山財産ネットワークス（東証スタンダード：8929）は、企業オーナーと資産家の財産全体を設計する独立系の総合財産コンサルティング会社です。費用の目安を事前に示し、顧問税理士と役割を分けて、事業承継・相続・資産の運用までを支援しています。（報酬体系と役割分担のご判断後に確定）</span></span></li>
+          <li><span class="tag web">Webサイト</span><span>サービス紹介と料金の考え方のページで、選ぶ理由として同じ言葉を使う（基準①と土台）</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow">
+        <div class="wa"><span class="t">すでに結びついている語</span><p class="w">相続・相続税、事業承継、不動産・資産組み替え、専門家チーム、実績・事例、M&amp;A、長期の伴走</p><p class="st"><span class="tag ai">AI上</span>　結びついているが、大手税理士法人も同じ水準で差がつかない</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag web">Webサイト</span><span>実績の数字と事例を読める形にして、根拠を揃える（土台）</span></li>
+          <li><span class="tag con">コンテンツ</span><span>単独では使わず、上の2つのグループの言葉と組み合わせて書く。例：「相続」だけでなく「顧問税理士と役割を分けた相続対策」</span></li>
+        </ul></div>
+      </div>
+      <div class="wrow">
+        <div class="wa"><span class="t">これから語られ方を見る語</span><p class="w">中立性、無料の初回相談、納税資金・節税、生前対策</p><p class="st"><span class="tag ai">AI上</span>　選ぶ場面でまだあまり語られていない</p></div>
+        <div class="wu"><ul>
+          <li><span class="tag web">Webサイト</span><span>中立性と無料の初回相談は、料金の考え方のページで説明する（基準①）</span></li>
+          <li><span class="tag con">コンテンツ</span><span>納税資金と生前対策は、年末の総括と展望レポートで扱う（基準③）</span></li>
+        </ul></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:10px">出典：IDEATECH AI応答モニタリング（2026年9月）。貴社名が出た49件の回答を対象に集計。</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="channels">
+    <span class="kicker">5　施策の一覧</span>
+    <h2>経路別の施策と時期</h2>
+    <p class="lead">同じ施策を、経路ごとに並べ直しました。どの基準に効くかを末尾に記しています。</p>
+    <div class="chcols">
+      <div class="chcol web">
+        <div class="hd"><span class="t">Webサイト</span><span class="s">貴社サイトの情報の置き方と書き方</span></div>
+        <ul>
+          <li>実績数値のテキスト化<span class="m">対応済み｜土台</span></li>
+          <li>証券コード、チェスターグループとの統合の明記<span class="m">10〜11月｜土台</span></li>
+          <li>解説記事に監修者の実名と資格<span class="m">10〜11月｜土台</span></li>
+          <li>家族信託のページの復旧<span class="m">10〜11月｜基準③</span></li>
+          <li>役割分担の一文（申告は顧問税理士に）<span class="m">11月｜基準②</span></li>
+          <li>料金の考え方のページ（中立性、無料の初回相談も説明）<span class="m">12月上旬｜基準①</span></li>
+          <li>会計事務所向けの連携の進め方のページ<span class="m">12月〜｜基準②</span></li>
+          <li>報酬ページの階層、2サイトの一本化、構造化データ<span class="m">来期のサイト整理｜土台</span></li>
+          <li>「総合財産コンサルティングとは」のページ<span class="m">来期のサイト整理｜基準③</span></li>
+        </ul>
+      </div>
+      <div class="chcol con">
+        <div class="hd"><span class="t">コンテンツ</span><span class="s">調査、記事、事例など新しく作るもの</span></div>
+        <ul>
+          <li>調査「相談先の選び方と費用」<span class="m">10〜11月｜基準①</span></li>
+          <li>調査「顧問税理士との役割分担」<span class="m">11月｜基準②</span></li>
+          <li>コラム第1弾「一次相続だけで分け方を決めてはいけない」<span class="m">11月〜｜基準③</span></li>
+          <li>「何から整理すればいいか」、まさかへの備えの解説<span class="m">11〜12月｜基準③</span></li>
+          <li>費用事例3本、相談先の選び方のページ<span class="m">12月上旬｜基準①</span></li>
+          <li>顧問税理士がいる経営者向けの記事<span class="m">12月｜基準②</span></li>
+          <li>年末の「総括と展望」レポート<span class="m">12月｜基準③</span></li>
+          <li>調査と記事の見出し・本文に、結びつけたい4語を使う<span class="m">11月〜｜言葉の設計</span></li>
+          <li>税理士・会計事務所側の調査<span class="m">来期・ご判断｜基準②</span></li>
+        </ul>
+      </div>
+      <div class="chcol cit">
+        <div class="hd"><span class="t">サイテーション</span><span class="s">社外の記事やリリースで、貴社が言及されること</span></div>
+        <ul>
+          <li>調査リリース「顧問税理士との役割分担」<span class="m">12月上旬｜基準②</span></li>
+          <li>調査リリース「相談先の選び方と費用」<span class="m">12月中旬｜基準①</span></li>
+          <li>料金公開のニュース化<span class="m">ご判断後｜基準①</span></li>
+          <li>総括と展望レポートのリリース、専門メディアへのご案内<span class="m">12月｜基準③</span></li>
+          <li>リリース末尾の会社紹介文を改め、選ぶ理由の言葉を毎回入れる<span class="m">11月〜｜言葉の設計</span></li>
+          <li>事業の話題でのリリースの比率を上げる<span class="m">来期｜土台</span></li>
+          <li>連携先のサイトでの貴社の紹介のされ方を整える<span class="m">来期｜土台</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="asks">
+    <span class="kicker">6　お願いしたいこと</span>
+    <h2>貴社にご判断・ご協力をお願いしたいこと</h2>
+    <p class="lead">いずれも事業側で決めていただく事項です。決まりしだい、Webサイトとコンテンツに反映します。</p>
+    <div class="asks">
+      <div class="zone biz">
+        <h4><span class="tag biz">事業</span>ご判断</h4>
+        <ol class="small">
+          <li>報酬体系をどこまで公開するか（基準①）<span class="wait">10月中</span></li>
+          <li>役割分担の明記と、提携先の会計事務所へのお伝えの仕方。相続税の申告の書き方（基準②）<span class="wait">11月</span></li>
+          <li>社長の考え方を対外的な表現に使うこと（基準③）<span class="wait">10月中</span></li>
+        </ol>
+      </div>
+      <div class="zone biz">
+        <h4><span class="tag biz">事業</span>コンサルティング部門へのご協力</h4>
+        <ol class="small">
+          <li>費用事例の題材のご提供と、期間・費用の目安のご確認</li>
+          <li>解説記事とコラムの監修（実名・資格の記載）</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">出典：IDEATECH AI応答モニタリング（2026年8月・9月）、非指名の問いの推奨状況（2026年9月17日取得）、オーナー経営者への検証調査（2026年9月、259名）、貴社ご提供資料、10月定例での協議内容。日付は目安です。</p>
+</main>
+<script>
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll('[data-k]'));
+  function show(k){
+    var panel=document.getElementById('d-'+k);
+    if(!panel) return;
+    [].forEach.call(document.querySelectorAll('.dpanel'),function(p){p.classList.toggle('on',p===panel)});
+    nodes.forEach(function(n){ if(n.hasAttribute('aria-pressed')) n.setAttribute('aria-pressed', n.getAttribute('data-k')===k ? 'true':'false'); });
+    try{localStorage.setItem('azn-client-k',k)}catch(e){}
+  }
+  nodes.forEach(function(n){n.addEventListener('click',function(){show(n.getAttribute('data-k'))})});
+  try{var s=localStorage.getItem('azn-client-k'); if(s) show(s);}catch(e){}
+})();
+</script>
+</body>
+</html>
